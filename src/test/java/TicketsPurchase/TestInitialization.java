@@ -15,28 +15,28 @@ public class TestInitialization {
 
     protected static WebDriver driver;
     static int timeOut = 10;
-    String BASE_URL = "http://blazedemo.com/index.php";
-    String BUTTON_PATH = "input.btn.btn-primary";
-    String CONTAINER_PATH = "//div[2]/table/tbody/tr/td";
-    String DEPARTURE_CITY = "Boston";
-    String ARRIVAL_CITY = "Berlin";
-    String NAME = "Test Testovich";
-    String ADDRESS = "Sawyer road 41";
-    String CITY = "Waltham";
-    String STATE = "MA";
-    String ZIPCODE = "02451";
-    String CreditCardNumber = "1234456789107777";
-    String MONTH = "12";
-    String YEAR = "2021";
+    String baseUrl = "http://blazedemo.com/index.php";
+    String buttonPath = "input.btn.btn-primary";
+    String containerPath = "//div[2]/table/tbody/tr/td";
+    String departureCity = "Boston";
+    String arrivalCity = "Berlin";
+    String name = "Test Testovich";
+    String address = "Sawyer road 41";
+    String city = "Waltham";
+    String state = "MA";
+    String zipcode = "02451";
+    String creditCardNumber = "1234456789107777";
+    String month = "12";
+    String year = "2021";
 
     protected static WebDriver startDriver(Browsers browserType) {
         switch (browserType) {
             case FIREFOX:
-                System.setProperty("webdriver.gecko.driver", "/home/alexander/IdeaProjects/OtusTasks/geckodriver");
+                System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver");
                 return new FirefoxDriver();
 
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", "/home/alexander/IdeaProjects/OtusTasks/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "./src/main/resources/chromedriver");
                 return new ChromeDriver();
 
             default:

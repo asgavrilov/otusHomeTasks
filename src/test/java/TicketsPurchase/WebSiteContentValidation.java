@@ -13,10 +13,10 @@ public class WebSiteContentValidation extends TestInitialization {
 
     @Test(testName = "Content Validation")
     public void test() {
-        driver.get(BASE_URL);
-        WebElement button = driver.findElement(By.cssSelector(BUTTON_PATH));
+        driver.get(baseUrl);
+        WebElement button = driver.findElement(By.cssSelector(buttonPath));
         button.click();
-        List<WebElement> content = driver.findElements(By.xpath(CONTAINER_PATH));
+        List<WebElement> content = driver.findElements(By.xpath(containerPath));
 
         for (WebElement e : content) {
             Assert.assertTrue(e.getText() != "");

@@ -9,21 +9,21 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class TicketsPurchase extends TestInitialization {
+public class ticketsPurchaseTest extends TestInitialization {
 
     @Test
-    public void SelectValidation() {
-        driver.get(BASE_URL);
+    public void selectValidation() {
+        driver.get(baseUrl);
 
         WebElement selectFrom = driver.findElement(By.cssSelector("select[name=fromPort]"));
         Select departureCity = new Select(selectFrom);
-        departureCity.selectByValue(DEPARTURE_CITY);
+        departureCity.selectByValue(this.departureCity);
 
         WebElement selectTo = driver.findElement(By.cssSelector("select[name=toPort]"));
         Select destinationCity = new Select(selectTo);
-        destinationCity.selectByValue(ARRIVAL_CITY);
+        destinationCity.selectByValue(arrivalCity);
 
-        WebElement button = driver.findElement(By.cssSelector(BUTTON_PATH));
+        WebElement button = driver.findElement(By.cssSelector(buttonPath));
         button.click();
 
 
@@ -31,16 +31,16 @@ public class TicketsPurchase extends TestInitialization {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]")));
 
         WebElement label = driver.findElement(By.xpath("//div[2]/h3"));
-        Assert.assertEquals("Flights from " + DEPARTURE_CITY + " to " + ARRIVAL_CITY + ":", label.getText());
+        Assert.assertEquals("Flights from " + this.departureCity + " to " + arrivalCity + ":", label.getText());
 
         WebElement departureName = driver.findElement(By.xpath("//div[2]/table/thead/tr/th[4]"));
         WebElement arrivalName = driver.findElement(By.xpath("//div[2]/table/thead/tr/th[5]"));
 
-        Assert.assertEquals("Departs: " + DEPARTURE_CITY, departureName.getText());
-        Assert.assertEquals("Arrives: " + ARRIVAL_CITY, arrivalName.getText());
+        Assert.assertEquals("Departs: " + this.departureCity, departureName.getText());
+        Assert.assertEquals("Arrives: " + arrivalCity, arrivalName.getText());
     }
 
-    @Test
+    @Test(dependsOnMethods = {"selectValidation"})
     public void chooseAirlineValidation() {
         //Choosing Lufthansa as a Flight Operator
 
@@ -73,39 +73,40 @@ public class TicketsPurchase extends TestInitialization {
         String fee = p4.getText().substring(26);
 
         WebElement p5 = driver.findElement(By.xpath("//div[2]/p[5]"));
-        Assert.assertEquals("Total Cost: " + (Double.parseDouble(tempPrice.substring(1)) + Double.parseDouble(fee)), p5.getText());
+        Assert.assertEquals("Total Cost: " + (Double.parseDouble(tempPrice.substring(1))
+                + Double.parseDouble(fee)), p5.getText());
     }
 
-    @Test
+    @Test(dependsOnMethods = {"chooseAirlineValidation"})
     public void populateData() {
         WebElement inputName = driver.findElement(By.cssSelector("input[name=inputName]"));
-        inputName.sendKeys(NAME);
+        inputName.sendKeys(name);
 
         WebElement inputAddress = driver.findElement(By.cssSelector("input[name=address]"));
-        inputAddress.sendKeys(ADDRESS);
+        inputAddress.sendKeys(address);
 
         WebElement inputCity = driver.findElement(By.cssSelector("input[name=city]"));
-        inputCity.sendKeys(CITY);
+        inputCity.sendKeys(city);
 
         WebElement inputState = driver.findElement(By.cssSelector("input[name=state]"));
-        inputState.sendKeys(STATE);
+        inputState.sendKeys(state);
 
         WebElement inputZip = driver.findElement(By.cssSelector("input[name=zipCode]"));
-        inputZip.sendKeys(ZIPCODE);
+        inputZip.sendKeys(zipcode);
 
         WebElement inputCreditCard = driver.findElement(By.cssSelector("input[name=creditCardNumber]"));
-        inputCreditCard.sendKeys(CreditCardNumber);
+        inputCreditCard.sendKeys(creditCardNumber);
 
         WebElement inputNameOnCard = driver.findElement(By.cssSelector("input[name=nameOnCard]"));
-        inputNameOnCard.sendKeys(NAME);
+        inputNameOnCard.sendKeys(name);
 
         WebElement creditCardMonth = driver.findElement(By.cssSelector("input[name=creditCardMonth]"));
         creditCardMonth.clear();
-        creditCardMonth.sendKeys(MONTH);
+        creditCardMonth.sendKeys(month);
 
         WebElement creditCardYear = driver.findElement(By.cssSelector("input[name=creditCardYear]"));
         creditCardYear.clear();
-        creditCardYear.sendKeys(YEAR);
+        creditCardYear.sendKeys(year);
 
         WebElement purchaseButton = driver.findElement(By.cssSelector("input[type='submit']"));
         purchaseButton.click();
@@ -143,7 +144,7 @@ public class TicketsPurchase extends TestInitialization {
         Assert.assertEquals("Card Number", cardNumber.getText());
 
         WebElement cardNumberValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(4) td:nth-child(2)"));
-        Assert.assertEquals(CreditCardNumber.substring(12), cardNumberValue.getText().substring(12));
+        Assert.assertEquals(creditCardNumber.substring(12), cardNumberValue.getText().substring(12));
 //cardnumber
 
 //Expiration
@@ -151,7 +152,7 @@ public class TicketsPurchase extends TestInitialization {
         Assert.assertEquals("Expiration", expiration.getText());
 
         WebElement expirationValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(5) td:nth-child(2)"));
-        Assert.assertEquals(MONTH + " /" + YEAR, expirationValue.getText());
+        Assert.assertEquals(month + " /" + year, expirationValue.getText());
 //Expiration
 
     }
