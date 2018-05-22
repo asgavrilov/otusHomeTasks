@@ -1,4 +1,4 @@
-package TicketsPurchase;
+package blazedemo.plain.TicketsPurchaseTest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -31,12 +31,12 @@ public class ticketsPurchaseTest extends TestInitialization {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]")));
 
         WebElement label = driver.findElement(By.xpath("//div[2]/h3"));
-        Assert.assertEquals("Flights from " + this.departureCity + " to " + arrivalCity + ":", label.getText());
+        Assert.assertEquals("Flights from " + this.departureCity + " to " + arrivalCity + ":", label.getText()); //TODO FIRST CHECK FOR PO
 
         WebElement departureName = driver.findElement(By.xpath("//div[2]/table/thead/tr/th[4]"));
         WebElement arrivalName = driver.findElement(By.xpath("//div[2]/table/thead/tr/th[5]"));
 
-        Assert.assertEquals("Departs: " + this.departureCity, departureName.getText());
+        Assert.assertEquals("Departs: " + this.departureCity, departureName.getText()); //TODO SECOND CHECK FOR PO
         Assert.assertEquals("Arrives: " + arrivalCity, arrivalName.getText());
     }
 
@@ -121,39 +121,39 @@ public class ticketsPurchaseTest extends TestInitialization {
 
         WebElement idValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(1) td:nth-child(1)"));
         Assert.assertTrue(idValue.getText() != "");
-//id
+        //id
 
-//status
+        //status
         WebElement status = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(2) td:nth-child(1)"));
         Assert.assertEquals("Status", status.getText());
 
         WebElement statusValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(2) td:nth-child(2)"));
         Assert.assertTrue(statusValue.getText() != "");
-//status
+        //status
 
-//amount
+        //amount
         WebElement amount = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(3) td:nth-child(1)"));
         Assert.assertEquals("Amount", amount.getText());
 
         WebElement amountValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(3) td:nth-child(2)"));
         Assert.assertTrue(amountValue.getText() != "");
-//amount
+        //amount
 
-//cardnumber
+        //cardnumber
         WebElement cardNumber = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(4) td:nth-child(1)"));
         Assert.assertEquals("Card Number", cardNumber.getText());
 
         WebElement cardNumberValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(4) td:nth-child(2)"));
         Assert.assertEquals(creditCardNumber.substring(12), cardNumberValue.getText().substring(12));
-//cardnumber
+        //cardnumber
 
-//Expiration
+        //Expiration
         WebElement expiration = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(5) td:nth-child(1)"));
         Assert.assertEquals("Expiration", expiration.getText());
 
         WebElement expirationValue = driver.findElement(By.cssSelector("table[class='table'] tr:nth-child(5) td:nth-child(2)"));
         Assert.assertEquals(month + " /" + year, expirationValue.getText());
-//Expiration
+        //Expiration
 
     }
 
