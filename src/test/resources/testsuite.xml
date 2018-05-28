@@ -4,6 +4,7 @@
     <test name="func">
         <classes>
             <class name="blazedemo.pageObject.TicketsPurchaseTest.tests.PurchaseFlightFunctionalTest"/>
+            <class name="blazedemo.pageObject.TicketsPurchaseTest.tests.LoginPageTest"/>
         </classes>
     </test>
 

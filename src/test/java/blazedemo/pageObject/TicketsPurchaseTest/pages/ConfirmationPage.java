@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ConfirmationPage extends AbstractPage {
     private WebDriver driver;
+
     @FindBy(css = "table[class='table'] tr:nth-child(1) td:nth-child(1)")
     private WebElement id;
     @FindBy(css = "table[class='table'] tr:nth-child(1) td:nth-child(1)")
