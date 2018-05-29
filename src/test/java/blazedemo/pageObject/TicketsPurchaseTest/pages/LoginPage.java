@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends AbstractPage {
@@ -43,5 +44,11 @@ public class LoginPage extends AbstractPage {
 
     public void submit() {
         loginButton.submit();
+    }
+
+    public void mouseOver(WebElement loginPage) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(loginPage);
+        actions.perform();
     }
 }
