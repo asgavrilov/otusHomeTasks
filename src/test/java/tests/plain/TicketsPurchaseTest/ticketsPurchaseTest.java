@@ -1,4 +1,4 @@
-package blazedemo.plain.TicketsPurchaseTest;
+package tests.plain.TicketsPurchaseTest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

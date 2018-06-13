@@ -1,4 +1,4 @@
-package blazedemo.pageObject.TicketsPurchaseTest.tests;
+package tests.pageObject;
 
 import blazedemo.pageObject.TicketsPurchaseTest.pages.LoginPage;
 import org.openqa.selenium.Dimension;

@@ -1,4 +1,4 @@
-package blazedemo.plain.TicketsPurchaseTest;
+package tests.plain.TicketsPurchaseTest;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
