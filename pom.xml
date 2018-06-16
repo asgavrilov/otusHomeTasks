@@ -14,6 +14,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <browser>${browser}</browser>
+                    </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.basedir}/src/test/resources/testsuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
@@ -21,8 +24,10 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <browser></browser>
+    </properties>
     <dependencies>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -54,20 +59,13 @@
             <version>1.16.18</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.maven.plugins</groupId>-->
-        <!--<artifactId>maven-surefire-plugin</artifactId>-->
-        <!--<version>2.21.0</version>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-opera-driver -->
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-opera-driver</artifactId>
             <version>3.12.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.opera/operadriver -->
-
     </dependencies>
 
 </project>
