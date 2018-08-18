@@ -3,8 +3,11 @@
 <suite name="FunctionalTest" verbose="1">
     <test name="func">
         <classes>
-            <class name="blazedemo.pageObject.TicketsPurchaseTest.tests.PurchaseFlightFunctionalTest"/>
-            <class name="blazedemo.pageObject.TicketsPurchaseTest.tests.LoginPageTest"/>
+            <class name="tests.pageObject.LoginPageTest"/>
+            <class name="tests.pageObject.PurchaseFlightFunctionalTest"/>
+            <class name="tests.com.automationpractice.automationPracticeExpectedConditionsTest"/>
+            <!--<class name="tests.plain.TicketsPurchaseTest.ticketsPurchaseTest"/>-->
+            <!--<class name="tests.plain.TicketsPurchaseTest.WebSiteContentValidationTest"/>-->
         </classes>
     </test>
 

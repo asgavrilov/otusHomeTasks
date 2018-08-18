@@ -1,15 +1,20 @@
 package tests.com.automationpractice;
 
 import com.automationpractice.indexPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.pageObject.BaseTest;
 
-public class automationPracticeExpectedConditionsTest extends ECBaseTest {
+public class automationPracticeExpectedConditionsTest extends BaseTest {
 
     private static final String URL = "http://automationpractice.com/index.php";
 
-
-    @Test
+    @Description("Automationpractice.com test")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(description = "Automationpractice.com test")
     public void autoPracticeChromeTest() {
 
         driver.get(URL);

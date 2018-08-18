@@ -42,6 +42,33 @@ public class TestInitialization {
         }
     }
 
+//    public static WebDriver getDriver() {
+//        String driverFromProperties =
+//                PropertyReader.getPropertyFromFile("properties/config.properties", "browser");
+//        if (driver == null) {
+//            switch (driverFromProperties) {
+//
+//                case "mozilla":
+//                    io.github.bonigarcia.wdm.WebDriverManager.firefoxdriver().setup();
+//                    driver = new FirefoxDriver();
+//                    return driver;
+//                    //break;
+//                case "chrome":
+//                    io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+//                    driver = new ChromeDriver();
+//                    return driver;
+//                    //break;
+//
+//                default:
+//                    io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup();
+//                    driver = new ChromeDriver();
+//                    return driver;
+//                   // break;
+//            }
+//        }
+//        return driver;
+//    }
+
     @BeforeClass
     public static void openBrowser() {
 

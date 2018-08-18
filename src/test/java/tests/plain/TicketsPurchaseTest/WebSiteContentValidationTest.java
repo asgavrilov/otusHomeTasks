@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 
-public class WebSiteContentValidation extends TestInitialization {
+public class WebSiteContentValidationTest extends TestInitialization {
 
 
     @Test(testName = "Content Validation")

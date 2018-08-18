@@ -10,7 +10,7 @@ public class WebDriverManager {
 
     private static WebDriver driver;
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(ChromeOptions chromeOptions) {
         String driverFromProperties =
                 PropertyReader.getPropertyFromFile("properties/config.properties", "browser");
         if (driver == null) {

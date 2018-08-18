@@ -1,6 +1,9 @@
 package tests.pageObject;
 
 import blazedemo.pageObject.TicketsPurchaseTest.pages.LoginPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.Dimension;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,7 +15,10 @@ public class LoginPageTest extends BaseTest {
     String email = "any@email.com";
     String pwd = "anypwd";
 
-    @Test(suiteName = "FunctionalTest")
+
+    @Description("Login testing")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(suiteName = "FunctionalTest", description = "Login page Test and color validation")
     public void LoginPageTest() {
         driver.get(LOGIN_URL);
         LoginPage lp = new LoginPage(driver);

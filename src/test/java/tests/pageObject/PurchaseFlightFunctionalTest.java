@@ -5,6 +5,9 @@ import blazedemo.pageObject.TicketsPurchaseTest.pages.ConfirmationPage;
 import blazedemo.pageObject.TicketsPurchaseTest.pages.FindFlightsIndexPage;
 import blazedemo.pageObject.TicketsPurchaseTest.pages.PurchaseFlightPage;
 import blazedemo.pageObject.TicketsPurchaseTest.pages.ReserveFlightPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -25,7 +28,10 @@ public class PurchaseFlightFunctionalTest extends BaseTest {
     private String month = "12";
     private String year = "2021";
 
-    @Test(suiteName = "FunctionalTest")
+
+    @Description("Blazedemo test")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(suiteName = "FunctionalTest", description = "Populating cities of departure and arrival")
     public void FindFlightIndexTest() {
 
 
@@ -36,7 +42,9 @@ public class PurchaseFlightFunctionalTest extends BaseTest {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]")));
     }
 
-    @Test(suiteName = "FunctionalTest", dependsOnMethods = "FindFlightIndexTest")
+    @Description("Blazedemo test")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(suiteName = "FunctionalTest", dependsOnMethods = "FindFlightIndexTest", description = "Flight Reservation Test")
     public void ReserveFlightTest() {
         ReserveFlightPage ReserveFlightPage = new ReserveFlightPage(driver);
         Assert.assertEquals("Flights from " + departureCity + " to " + arrivalCity + ":",
@@ -52,7 +60,9 @@ public class PurchaseFlightFunctionalTest extends BaseTest {
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[2]")));
     }
 
-    @Test(suiteName = "FunctionalTest", dependsOnMethods = "ReserveFlightTest")
+    @Description("Blazedemo test")
+    @Severity(SeverityLevel.CRITICAL)
+    @Test(suiteName = "FunctionalTest", dependsOnMethods = "ReserveFlightTest", description = "Flight Purchase test")
     public void PurchaseFlightTest() {
 
         PurchaseFlightPage purchaseFlightPage = new PurchaseFlightPage(driver);

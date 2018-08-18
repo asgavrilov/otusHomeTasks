@@ -1,10 +1,11 @@
 package tests.com.automationpractice;
 
-import utils.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import utils.WebDriverManager;
 
 public class ECBaseTest {
 
@@ -15,7 +16,11 @@ public class ECBaseTest {
 
     @BeforeClass
     public void beforeTest() {
-        driver = WebDriverManager.getDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.setExperimentalOption("useAutomationExtension", false);
+        driver = WebDriverManager.getDriver(chromeOptions);
         webDriverWait = new WebDriverWait(driver, timeout);
     }
 
